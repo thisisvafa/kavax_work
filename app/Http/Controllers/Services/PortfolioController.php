@@ -7,6 +7,7 @@ use App\Model\Attachments;
 use App\Model\Portfolio;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use App\Model\Services;
 
@@ -157,9 +158,12 @@ class PortfolioController extends Controller
     public function edit($id)
     {
         $Portfolio = Portfolio::find($id);
+        $portfolioCategories = DB::table("portfolios_category")->where("portfolios_category.portfolios_id",$id)
+            ->pluck('portfolios_category.category_id','portfolios_category.category_id')
+            ->all();
         $services = Services::where('service_level', 'parent')->select('id', 'title')->orderBy('created_at', 'desc')->get();
 
-        return view('admin.portfolio.edit', compact('Portfolio', 'services'));
+        return view('admin.portfolio.edit', compact('Portfolio', 'portfolioCategories', 'services'));
     }
 
     /* Portfolio Update */
@@ -167,6 +171,9 @@ class PortfolioController extends Controller
     {
         $user = auth()->user();
         $Portfolio = Portfolio::find($id);
+
+        $Portfolio->categories()->detach();
+        $Portfolio->categories()->sync($request->service_id);
 
         $PortfolioData = $request->all();
         $PortfolioData['slug'] = $Portfolio->slug;
@@ -288,9 +295,10 @@ class PortfolioController extends Controller
 
         $PortfolioData['grid'] = json_encode($Grid);
 
-        if ($por = $Portfolio->update($PortfolioData)) {
-            $por->categories()->sync($request->service_id);
-            return redirect()->back()->with('notification', [
+        $PortfolioData['service_id'] = $request->service_id[0];
+
+        if ($Portfolio->update($PortfolioData)) {
+            return redirect('admin/portfolio')->with('notification', [
                 'class' => 'success',
                 'message' => 'Portfolio Updated.'
             ]);

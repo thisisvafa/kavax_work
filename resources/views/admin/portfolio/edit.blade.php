@@ -131,7 +131,8 @@
 {{--                                    <option value="">Choose an Option</option>--}}
 {{--                                    <option value="">Choose an Option</option>--}}
                                     @forelse($services as $item)
-                                    <option @if(old('service_id')==$item->id) selected @else @if($Portfolio->service_id == $item->id) selected @endif @endif value="{{ $item->id }}" {{ old('service_id') === $item->id ? "selected" : "" }}>{{ $item->title }}</option>
+{{--                                        <option @if(old('service_id')==$item->id) selected @else @if($Portfolio->service_id == $item->id) selected @endif @endif value="{{ $item->id }}" {{ old('service_id') === $item->id ? "selected" : "" }}>{{ $item->title }}</option>--}}
+                                        <option value="{{ $item->id }}" {{ in_array($item->id, $portfolioCategories) ? "selected" : "" }} {{ old('service_id') === $item->id ? "selected" : "" }}>{{ $item->title }}</option>
                                     @empty
                                     @endforelse
                                 </select>
