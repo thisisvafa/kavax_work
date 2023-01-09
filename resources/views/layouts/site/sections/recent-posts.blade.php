@@ -45,7 +45,7 @@ $career = \App\Model\Career::orderBy('id','desc')->first();
             <div class="row mw-1047px mt-5 pt-5">
                 @foreach($posts as $post)
                 <div class="col-md-4 col-sm-12">
-                    <div class="post-col px-5">
+                    <div class="post-col px-5 mb-5">
                         <div class="category-item">
                             <span><img height="auto" width="33px" src="{{ asset('svgs/megaphone.svg') }}" style="width: 33px;" /></span>
                             <span style="margin-left:10px;font-size: 20px !important;">News</span>
