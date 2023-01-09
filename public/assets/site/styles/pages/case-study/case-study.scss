@@ -1,0 +1,128 @@
+@import "../../_sass/mixins";
+@import "../../_sass/BaseColor";
+
+.single-case-study {
+    padding: 0 90px;
+    .share-section{
+        font-size: 28px;
+        color:#E19726;
+        text-transform: uppercase;
+        &>a{
+            margin-left:10px;
+            svg{
+                width:29px;
+                height:29px;
+            }
+        }
+    }
+    .describePackage{
+        font-size: 30px;
+        margin-top:62px;
+        margin-bottom: 98px;
+    }
+    .packages-w-100{
+        width:100% !important;
+        grid-template-columns: 100% !important;
+        .feature-grand-container{
+            display: flex;
+            .feature-container{
+                position: relative;
+                p{
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+    .packages{
+        display: grid;
+        column-gap:26px;
+        margin-bottom: 80px;
+        grid-template-columns: repeat(3 , calc((100% - 52px) / 3));
+        @media (max-width: 1000px) {
+            grid-template-columns: 100%;
+        }
+        .case-study-package-item{
+
+            background-color: #171717;
+            padding:40px 23px;
+            @media (max-width: 1000px) {
+                margin-bottom: 20px;
+            }
+            &>p{
+                text-align: center;
+            }
+            .package-name{
+                font-size: 36px;
+                color:#fff;
+            }
+            .package-price{
+                color:#E29826;
+                font-size: 68px;
+                margin-bottom: 20px;
+                &>span{
+                    font-size: 48px;
+                    display: inline-block;
+                    transform:translateY(-20px);
+                }
+            }
+            .fullHeight{
+                height: auto !important ;
+
+            }
+            .features{
+                list-style: none; /* Remove default bullets */
+                height: 550px;
+                overflow: hidden;
+                margin-bottom: 0;
+                li{
+                    font-size: 18px;
+                    line-height: 36px;
+                    color:#D1D1D1;
+                    margin-bottom: 16px;
+                }
+                li::before {
+                    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+                    color: #E29826; /* Change the color */
+                    font-weight: bold; /* If you want it to be bold */
+                    display: inline-block; /* Needed to add space between the bullet and the text */
+                    width: 1em; /* Also needed for space (tweak if needed) */
+                    margin-left: -1em; /* Also needed for space (tweak if needed) */
+                }
+            }
+            .overlay{
+                text-align: center;
+                cursor: pointer;
+                margin-top:10px;
+            }
+            .choose-btn{
+                width:280px;
+                height:54px;
+                border:2px solid #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin:30px auto 0;
+            }
+        }
+    }
+    .text-section{
+        max-width: 1047px;
+        p{
+            font-size: 20px;
+            color:#D1D1D1 ;
+            font-family: Lato;
+        }
+    }
+}
+
+.case-study-contact{
+    margin-top:120px;
+    margin-bottom: 150px;
+    .heading-form{
+        font-size: 30px;
+        color:#E29826;
+    }
+    .desc-form{
+        font-size: 25px;
+    }
+}

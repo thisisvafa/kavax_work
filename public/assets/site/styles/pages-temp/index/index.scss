@@ -1,0 +1,302 @@
+@import "../../_sass/mixins";
+@import "../../_sass/BaseColor";
+
+/* Intro Section */
+
+@keyframes spriteAppDevelopment {
+    to {
+        background-position: -1320px 0;
+    }
+}
+
+@keyframes spriteContent {
+    to {
+        background-position: -1980px 0;
+    }
+}
+
+@keyframes spriteDigitalMarketing {
+    to {
+        background-position: -2970px 0;
+    }
+}
+
+@keyframes spriteVideoMarketing {
+    to {
+        background-position: -1320px 0;
+    }
+}
+
+@keyframes spriteWebsiteDevelopment {
+    to {
+        background-position: -1650px 0;
+    }
+}
+
+@keyframes introBtnAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.06);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shakeClass{
+    animation: shake 1s ease-out infinite;
+
+}
+
+.intro-section {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 65px;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background: -moz-linear-gradient( top, rgba(0, 0, 0, 0) 0%, rgba(32, 32, 32, 1) 100%);
+        background: -webkit-linear-gradient( top, rgba(0, 0, 0, 0) 0%, rgba(32, 32, 32, 1) 100%);
+        background: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(32, 32, 32, 1) 100%);
+
+    }
+    .cover {
+        margin: 0 0 -115px;
+        opacity: 0;
+        //z-index:999;
+        //visibility: hidden;
+        transition: all 250ms ease;
+        video {
+            height: auto;
+        }
+    }
+    .video-play {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: -1;
+        //visibility: hidden;
+        transition: all 250ms ease;
+    }
+    .video-play-button-visible{
+        opacity:1 !important;
+    }
+    .video-play-button {
+        position: absolute;
+        bottom: calc(19% - 25px);
+        left: 18.3%;
+        width: 20%;
+        cursor: pointer;
+        transform: scale(1);
+        //animation: introBtnAnimation 1s ease-out infinite;
+        opacity: 0;
+        @media (max-width: 1800px) {
+            bottom: calc(19% - 37px);
+        }
+        @media (max-width: 1600px) {
+            bottom: calc(19% - 42px);
+        }
+        @media (max-width: 1300px) {
+            bottom: calc(19% - 55px);
+        }
+        @media (max-width: 1000px) {
+            bottom: calc(19% - 20px);
+        }
+        @media (max-width: 500px) {
+            bottom: calc(19%);
+        }
+    }
+    .show-video {
+        opacity: 1;
+        //visibility: visible;
+        transition: all 250ms ease;
+    }
+}
+
+
+/* Services Section */
+
+.services-section {
+    position: relative;
+    z-index: 2;
+    .section-heading {
+        z-index: 2;
+        position: relative;
+    }
+    //&:before {
+    //  content: '';
+    //  position: absolute;
+    //  right: 0;
+    //  top: -100px;
+    //  bottom: -100px;
+    //  width: 100%;
+    //  background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 63%, rgba(255, 255, 255, 0) 98%);
+    //  background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 63%, rgba(255, 255, 255, 0) 98%);
+    //  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 63%, rgba(255, 255, 255, 0) 98%);
+    //  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99ffffff', endColorstr='#00ffffff', GradientType=1);
+    //  opacity: .04;
+    //}
+    .service-list {
+        position: relative;
+        z-index: 1;
+        .item-inner {
+            display: inline-block;
+            margin-bottom: 110px;
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteServices 3s steps(4) infinite;
+                    }
+                    .animate-media {
+                        opacity: 1;
+                    }
+                }
+                //.service-name {
+                //    opacity: 1;
+                //}
+            }
+            .service-image {
+                display: inline-block;
+                margin-bottom: 50px;
+                transition: 0.3s;
+                position: relative;
+                .static-img {
+                    //transition: .3s;
+                    display: block;
+                    width: 330px;
+                    height: 330px;
+                    background-position: 0 0;
+                }
+                .animate-media {
+                    transition: 0.3s;
+                    position: absolute;
+                    opacity: 0;
+                    pointer-events: none;
+                    z-index: -1;
+                    &.digital-marketing {
+                        right: -155px;
+                        left: -18px;
+                        top: -135px;
+                    }
+                    &.mobile {
+                        right: -54px;
+                        left: -41px;
+                        top: -128px;
+                    }
+                    &.video {
+                        right: -10px;
+                        left: -10px;
+                        top: -26px;
+                    }
+                    &.content {
+                        right: -23px;
+                        left: -14px;
+                        top: -44px;
+                    }
+                    &.website {
+                        right: -95px;
+                        left: -86px;
+                        top: -41px;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .service-name {
+                display: inline-block;
+                width: 100%;
+                font-size: 19px;
+                opacity: 0.1;
+                transition: 0.3s;
+            }
+        }
+        .item-app-development {
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteAppDevelopment 2s steps(4) infinite;
+                    }
+                }
+            }
+        }
+        .item-content {
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteContent 3s steps(6) infinite;
+                    }
+                }
+            }
+        }
+        .item-digital-marketing {
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteDigitalMarketing 3s steps(9) infinite;
+                    }
+                }
+            }
+        }
+        .item-video-marketing {
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteVideoMarketing 2s steps(4) infinite;
+                    }
+                }
+            }
+        }
+        .item-website-development {
+            &:hover {
+                .service-image {
+                    .static-img {
+                        animation: spriteWebsiteDevelopment 2.2s steps(5) infinite;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* About Section */
+
+.about-section {
+    .about-us-title {
+        margin-bottom: 68px;
+        color: #e6e6e6;
+        font-size: 42px;
+        font-weight: 900;
+    }
+    .about-us-text {
+        color: #9ea2a0;
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 30px;
+        padding-left: 50px;
+    }
+}
