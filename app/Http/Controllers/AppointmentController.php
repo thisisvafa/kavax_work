@@ -110,7 +110,7 @@ class AppointmentController extends Controller
             'body' => 'Testing mail.'
         ];
 
-        Mail::to("tawsif@kavax.co.uk")->send(new TestMail($details));
+        Mail::to("vafa_v17@yahoo.com")->send(new TestMail($details));
 
         return "Email Sent";
     }
