@@ -268,6 +268,8 @@ class OtherPagesController extends Controller
             if ($OtherPage->template == 'about-us') {
                 return view('site.pages.other-pages.about-us', compact('OtherPage'));
             }
+        } else {
+            return abort(404);
         }
     }
 
