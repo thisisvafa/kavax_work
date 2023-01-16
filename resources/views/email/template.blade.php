@@ -70,7 +70,7 @@
           <table>
             <tr>
               <td style="padding-top: -10px;;">
-                <img src="https://www.kavax.co.uk/admin-panel/public/images/A.png" alt="" style="width: 150px;height:auto;">
+                <img src="https://www.kavax.co.uk/admin-panel/public/images/A.png" alt="" style="width: 100px;height:auto;">
 
                 <span>
                 </span>
@@ -103,7 +103,7 @@
                   </tr>
                   <tr>
                     <td colspan="2">
-                      <strong>A : International House, 64 Nile Street <br /> &nbsp; &nbsp;&nbsp;&nbsp; London N1 7SR England</strong>
+                      <strong>A : 33 Cavendish Sq, <br /> &nbsp; &nbsp;&nbsp;&nbsp; London, W1G 0PW United Kingdom</strong>
                     </td>
                   </tr>
                   <tr>

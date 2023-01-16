@@ -28,7 +28,7 @@ array_push($tab, $item->service->title);
                     <ul class="gallery-list js-gallery">
                         @foreach($Portfolio as $item)
                         <li class="gallery-item all {{ preg_replace("/\s+/", "", $item->service->title) }}" onclick="window.location.href='{{ url('portfolio/') .'/'. $item->slug }}'">
-                            <a class="item-a" href="{{ url('portfolio/') .'/'. $item->slug }}" data-original-width="800" data-original-height="1200"><img src="{{asset('storage/portfolio/thumbnail').'/'.\App\Model\Attachments::find($item->thumbnail)->path}}" width="482" height="203" alt=""></a>
+                            <a class="item-a" href="{{ url('portfolio/') .'/'. $item->slug }}" data-original-width="800" data-original-height="1200"><img src="{{asset('storage/portfolio/thumbnail').'/'.\App\Model\Attachments::find($item->thumbnail)->path}}" width="482" height="280" alt=""></a>
                         </li>
                         @endforeach
                     </ul>
