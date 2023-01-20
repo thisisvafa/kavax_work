@@ -19,6 +19,11 @@
     .general-enquiries .section-inner .general-enquiries-block {
         padding: 100px 140px 103px 70px !important;
     }
+    @media (max-width:423px) {
+        .general-enquiries .section-inner .general-enquiries-block {
+            padding: 0px !important;
+        }
+    }
 </style>
 <!-- Intro Section -->
 <section class="intro-section">
