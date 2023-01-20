@@ -39,6 +39,7 @@ class ServiceRequestController extends Controller
         $ServiceRequestData['status'] = 'new';
 
         if (ServiceRequest::create($ServiceRequestData)) {
+            dd('asa');
             //create new user
             $password = rand(100000, 999999);
             $token = Str::random(32);

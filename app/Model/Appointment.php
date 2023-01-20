@@ -10,7 +10,11 @@ class Appointment extends Model
 
     public function getDateAttribute($date)
     {
-        return Carbon::parse($date)->format("d M, Y");
+        if ($date == null) {
+            return Carbon::parse($date)->format("d M, Y");
+        } else {
+            return 'Date not set!';
+        }
     }
 
     public function user()

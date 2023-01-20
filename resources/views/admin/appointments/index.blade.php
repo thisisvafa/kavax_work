@@ -54,7 +54,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->date }}</td>
-                                <td>{{ $item->time->time . " ". $item->time->part->name}}</td>
+                                <td>{{ $item->time ? $item->time->time . " ". $item->time->part->name : 'Time not set!'}}</td>
                                 <td>{{ $item->user->fullName }}</td>
                                 <td>
                                     Name: {{ $item->name }} <br>
