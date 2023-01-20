@@ -45,6 +45,8 @@
     {{-- Page Style --}}
     <link rel="stylesheet" href="{{ asset('assets/site/styles/pages-temp/base/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/site/styles/pages/base/style.min.css') }}">
+
+    @yield('head-style')
     <link href="{{ asset('assets/site/styles/pages-temp') }}/@yield('page-style-temp')" type="text/css" rel="stylesheet">
     <link href="{{ asset('assets/site/styles/pages') }}/@yield('page-style')" type="text/css" rel="stylesheet">
 

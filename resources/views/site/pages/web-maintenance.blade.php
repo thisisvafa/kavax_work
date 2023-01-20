@@ -17,7 +17,7 @@
 @section('content')
 
 <style>
-    ul {
+    .maintenance-section ul {
         list-style: none;
         margin-left: 0;
         padding-left: 1em;
