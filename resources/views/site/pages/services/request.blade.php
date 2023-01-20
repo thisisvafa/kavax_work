@@ -57,6 +57,12 @@
     #employees[type=number] {
         -moz-appearance:textfield; /* Firefox */
     }
+
+    @media (max-width:575px) {
+        .form-block .field-block.submit-form input {
+            padding: 0 42px !important;
+        }
+    }
 </style>
 <!-- Intro Section -->
 <section class="intro-section">

@@ -32,14 +32,12 @@ class ServiceRequestController extends Controller
     /* Submit Request */
     public function store(Request $request, Project $project)
     {
-//        dd($request->all());
         $ServiceRequestData = $request->all();
 
         $ServiceRequestData['request_meta'] = json_encode($request->request_meta);
         $ServiceRequestData['status'] = 'new';
 
         if (ServiceRequest::create($ServiceRequestData)) {
-            dd('asa');
             //create new user
             $password = rand(100000, 999999);
             $token = Str::random(32);
@@ -50,34 +48,36 @@ class ServiceRequestController extends Controller
                 'contactNumber' => $request->phone,
                 'businessName' => $request->project_name,
                 'role' => 'customer',
-                'default_password' => 1,
                 'password' => bcrypt($password),
-                'token' => $token
             ];
-            try {
+            $userFind = User::where('email', $request->email)->first();
+            if($userFind == null) {
                 $user = User::create($data);
-
-                $pdata = [
-                    'project' => [
-                        'name' => $request->project_name,
-                        'business_name' => $request->request_meta['name_of_your_business'],
-                        'objective' => $request->request_meta['goal_for_the_project'],
-                        'budget' => $request->request_meta['budget'] ?? 0,
-                        'employee_size' => $request->request_meta['employees'] ?? 0,
-                        'created_by' => $user->id,
-                        'status' => 0,
-                        'package_name' => $request->package_name,
-                    ],
-                    'categories' => $request->request_meta['service_type'],
-                ];
-                $project->create($pdata);
-
+            }
+            $pdata = [
+                'project' => [
+                    'name' => $request->project_name,
+                    'business_name' => $request->request_meta['name_of_your_business'],
+                    'objective' => $request->request_meta['goal_for_the_project'],
+                    'budget' => $request->request_meta['budget'] ?? 0,
+                    'employee_size' => $request->request_meta['employees'] ?? 0,
+                    'created_by' => $user->id,
+                    'status' => 0,
+//                    'package_name' => $request->package_name,
+                ],
+                'categories' => $request->request_meta['service_type'],
+            ];
+            $project->create($pdata);
+            try {
                 Mail::to($request->email)->send(new SendMail(
                     $request->full_name,
                     "Registration Complete",
                     "Hi, Thank you for registration. Your new default password: " . $password . " You can change it after login."
                 ));
-                return redirect()->away(env("APP_URL") . '/app/' . $token);
+                return redirect()->back()->with('notification', [
+                    'class' => 'success',
+                    'message' => 'Your Request has been successfully registered and we will contact you shortly.'
+                ]);
             } catch (\Exception $e) {
                 return redirect()->back()->with('notification', [
                     'class' => 'success',
