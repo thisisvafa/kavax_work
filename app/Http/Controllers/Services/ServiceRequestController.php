@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Services;
 
 use App\Http\Controllers\Controller;
+use App\Model\MailSetting;
 use App\Model\ServiceRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -54,8 +55,10 @@ class ServiceRequestController extends Controller
             if($userFind == null) {
                 $user = User::create($data);
                 $userId = $user->id;
+                $userName = $user->name;
             } else {
                 $userId = $userFind->id;
+                $userName = $userFind->name;
             }
             $pdata = [
                 'project' => [
@@ -71,6 +74,23 @@ class ServiceRequestController extends Controller
                 'categories' => $request->request_meta['service_type'],
             ];
             $project->create($pdata);
+
+            try{
+                $findEmail = MailSetting::first();
+                Mail::to($findEmail->mail_to)->send(new SendMail(
+                    "Hello Team",
+                    "Glad to inform you that $userName has chosen our $request->project_name service",
+                    "For $request->request_meta['name_of_your_business']".
+                    "Login here for more information: <br/>" .
+                    "https://www.kavax.co.uk/<br/><br/>" .
+                    "Best regards,<br/>" .
+                    "Kavax Family"
+                ));
+            }
+            catch(\Exception $e){
+                // Never reached
+            }
+
             try {
                 Mail::to($request->email)->send(new SendMail(
                     $request->full_name,
