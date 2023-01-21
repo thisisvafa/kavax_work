@@ -61,7 +61,7 @@
                             <div class="contact-item">
                                 <div class="label">Location:</div>
                                 <div class="value">
-                                    KavaX Media<br> 33 Cavendish Sq,<br> London, W1G 0PW<br> United Kingdom
+                                    Kavax Media<br> 33 Cavendish Sq,<br> London, W1G 0PW<br> United Kingdom
                                 </div>
                             </div>
                         </div>
