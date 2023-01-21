@@ -53,6 +53,9 @@ class ServiceRequestController extends Controller
             $userFind = User::where('email', $request->email)->first();
             if($userFind == null) {
                 $user = User::create($data);
+                $userId = $user->id;
+            } else {
+                $userId = $userFind->id;
             }
             $pdata = [
                 'project' => [
@@ -61,7 +64,7 @@ class ServiceRequestController extends Controller
                     'objective' => $request->request_meta['goal_for_the_project'],
                     'budget' => $request->request_meta['budget'] ?? 0,
                     'employee_size' => $request->request_meta['employees'] ?? 0,
-                    'created_by' => $user->id,
+                    'created_by' => $userId,
                     'status' => 0,
 //                    'package_name' => $request->package_name,
                 ],
