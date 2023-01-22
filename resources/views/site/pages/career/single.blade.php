@@ -103,7 +103,7 @@
                 <div class="col-6">
                     <div class="request-col">
                         <div class="title-item">We're hiring</div>
-                        <div class="cta-link"><a href="{{ url('contact-us') }}">join the team</a></div>
+                        <div class="cta-link"><a href="{{ url('career') }}">join the team</a></div>
                     </div>
                 </div>
             </div>
