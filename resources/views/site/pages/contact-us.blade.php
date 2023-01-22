@@ -19,6 +19,11 @@
     .general-enquiries .section-inner .general-enquiries-block {
         padding: 100px 140px 103px 70px !important;
     }
+    @media (max-width:423px) {
+        .general-enquiries .section-inner .general-enquiries-block {
+            padding: 0px !important;
+        }
+    }
 </style>
 <!-- Intro Section -->
 <section class="intro-section">
@@ -56,7 +61,7 @@
                             <div class="contact-item">
                                 <div class="label">Location:</div>
                                 <div class="value">
-                                    KavaX Media<br> 33 Cavendish Sq,<br> London, W1G 0PW, United Kingdom
+                                    Kavax Media<br> 33 Cavendish Sq,<br> London, W1G 0PW<br> United Kingdom
                                 </div>
                             </div>
                         </div>

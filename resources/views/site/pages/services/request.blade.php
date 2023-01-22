@@ -35,6 +35,34 @@
     .form-block .field-block.radio-input input:checked+label circle {
         stroke: #e29826;
     }
+
+    #budget::-webkit-outer-spin-button,
+    #budget::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    #budget[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+
+    #employees::-webkit-outer-spin-button,
+    #employees::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    #employees[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+
+    @media (max-width:575px) {
+        .form-block .field-block.submit-form input {
+            padding: 0 42px !important;
+        }
+    }
 </style>
 <!-- Intro Section -->
 <section class="intro-section">
@@ -257,7 +285,7 @@
                                     project.</span></label>
 
                             <span class="input-symbol-euro">
-                                {!! Form::number('request_meta[budget]', null, ['id' => 'budget', 'class' => 'col-12 order-1', 'style' => ' padding:0 30px ']) !!}
+                                {!! Form::number('request_meta[budget]', null, ['id' => 'budget', 'class' => 'col-12 order-1', 'style' => ' padding:0 30px ', 'min' => '0']) !!}
                             </span>
                         </div>
                     </div>
@@ -271,7 +299,7 @@
 
                     <div class="field-block label-without-field text-field">
                         <div class="row g-0">
-                            {!! Form::number('request_meta[employees]', null, ['required', 'id' => 'employees', 'class' => 'col-12 order-1']) !!}
+                            {!! Form::number('request_meta[employees]', null, ['required', 'id' => 'employees', 'class' => 'col-12 order-1', 'min' => '0']) !!}
                             {!! Form::label('employees', 'How many employees work for your business?*', ['class' => 'col-12 order-0']) !!}
 
                         </div>

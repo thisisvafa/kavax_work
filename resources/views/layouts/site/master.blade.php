@@ -45,6 +45,7 @@
     {{-- Page Style --}}
     <link rel="stylesheet" href="{{ asset('assets/site/styles/pages-temp/base/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/site/styles/pages/base/style.min.css') }}">
+
     <link href="{{ asset('assets/site/styles/pages-temp') }}/@yield('page-style-temp')" type="text/css" rel="stylesheet">
     <link href="{{ asset('assets/site/styles/pages') }}/@yield('page-style')" type="text/css" rel="stylesheet">
 
@@ -226,12 +227,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm col-12">
-                    <div class="copyright-text">© 2021 KavaX . All Rights Reserved</div>
+                    <div class="copyright-text">© 2021 Kavax . All Rights Reserved</div>
                     <nav class="footer-nav">
                         <ul>
-                            <li><a href="{{ url('web-maintenance') }}">Website Maintenance</a></li>
-                            <li><a href="{{ url('subscription/website/package/nothing') }}">Packages</a></li>
                             <li><a href="{{ url('career') }}">Careers</a></li>
+                            <li><a href="{{ url('web-maintenance') }}">Website Maintenance</a></li>
+{{--                            <li><a href="{{ url('subscription/website/package/nothing') }}">Packages</a></li>--}}
                             <li><a href="{{url('privacy-policy')}}">Privacy Policy</a></li>
                             <li><a href="{{ url('Terms-&-Conditions.pdf') }}">Terms and Conditions</a></li>
                         </ul>
