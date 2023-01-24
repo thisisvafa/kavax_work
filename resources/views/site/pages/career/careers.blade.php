@@ -42,7 +42,7 @@
 
 <!-- Archive Career -->
 <section class="archive-Careers-section gradient-page">
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             @if(count($Career))
             @foreach($Career as $item)
@@ -53,10 +53,10 @@
                             <img src="@if($item->thumbnail && isset(\App\Model\Attachments::find($item->thumbnail)->path)) {{asset('storage/career/thumbnail/636').'/'.\App\Model\Attachments::find($item->thumbnail)->path}} @else{{ asset('assets/admin/img/base/icons/image.svg') }}@endif" alt="{{ $item->title }}">
                         </span> <span class="post-meta">
                             {{-- <span class="cat-name">{{ $item->title }}</span>--}}
-                        <div class="date">{{ date('F / d M, Y', strtotime($item->created_at)) }}</div>
+{{--                        <div class="date">{{ date('F / d M, Y', strtotime($item->created_at)) }}</div>--}}
                         </span> <span class="title">{{ $item->title }}</span>
 
-                        <span class="read-more">Read article</span>
+{{--                        <span class="read-more">Read article</span>--}}
                     </a>
                 </div>
             </div>
